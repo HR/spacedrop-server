@@ -1,0 +1,40 @@
+{
+  "name": "ciphora-server",
+  "version": "0.0.1",
+  "description": "Ciphora Server",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp",
+    "preinstall": "if [ \"$NODE_ENV\" != \"development\" ] && [ -z \"$CI\" ]; then npm install pm2 -g  && pm2 install pm2-logrotate; fi",
+    "start": "pm2 start --attach process.yml && pm2 logs all",
+    "test": "echo TODO"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HR/ciphora-server.git"
+  },
+  "author": {
+    "name": "Habib Rehman",
+    "email": "h@rehman.email",
+    "url": "github.com/HR"
+  },
+  "bugs": {
+    "url": "https://github.com/HR/ciphora-server/issues"
+  },
+  "dependencies": {
+    "ajv": "^6.12.0",
+    "tweetnacl": "^1.0.3",
+    "ws": "^7.2.3"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-env": "^0.4.0",
+    "gulp-nodemon": "^2.5.0",
+    "nodemon": "^2.0.2"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.1",
+    "utf-8-validate": "^5.0.2"
+  }
+}
