@@ -1,16 +1,16 @@
 <h3 align="center">
   <br>
-  <a href="https://github.com/HR/ciphora"><img src="https://raw.githubusercontent.com/HR/ciphora/master/build/icon.png" alt="Ciphora" width="180" style= "margin-bottom: 1rem"></a>
+  <a href="https://github.com/HR/spacedrop"><img src="https://raw.githubusercontent.com/HR/spacedrop/master/build/icon.png" alt="Spacedrop" width="180" style= "margin-bottom: 1rem"></a>
   <br>
-  Ciphora Server
+  Spacedrop Server
   <br>
   <br>
 </h3>
 <br>
 <br>
 
-Simple discovery and signalling (websocket) server for the Ciphora (https://github.com/HR/ciphora), a P2P E2E encrypted messaging app.
-Provides simple peer authentication through PGP. See `src/schema/message.json` for messaging format.
+Simple discovery and signalling (websocket) server for Spacedrop (https://github.com/HR/spacedrop), a P2P E2E encrypted file-sharing app.
+Implements simple peer authentication. See `src/schema/message.json` for messaging format.
 
 
 # Development
@@ -19,7 +19,7 @@ Provides simple peer authentication through PGP. See `src/schema/message.json` f
 ## Setup
 Clone the repo
 ```
-$ git clone https://github.com/HR/ciphora-server.git
+$ git clone https://github.com/HR/spacedrop-server.git
 ```
 
 Install all libraries and tools
@@ -30,7 +30,6 @@ $ npm install
 Create `.env.json` file with the required environmental variables
 ```json
 {
-  "NODE_ENV": "development",
   "REDIS_URI": "..."
 }
 ```
