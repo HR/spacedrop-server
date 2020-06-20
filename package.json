@@ -2,8 +2,11 @@
   "name": "ciphora-server",
   "version": "0.0.1",
   "description": "Ciphora Server",
-  "main": "server.js",
+  "main": "index.js",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/gulp",
     "preinstall": "if [ \"$NODE_ENV\" != \"development\" ] && [ -z \"$CI\" ]; then npm install pm2 -g  && pm2 install pm2-logrotate; fi",
@@ -24,6 +27,7 @@
   },
   "dependencies": {
     "ajv": "^6.12.0",
+    "ioredis": "^4.17.3",
     "tweetnacl": "^1.0.3",
     "ws": "^7.2.3"
   },

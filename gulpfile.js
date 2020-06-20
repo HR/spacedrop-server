@@ -12,7 +12,7 @@ gulp.task('nodemon', function (done) {
   })
 
   nodemon({
-    script: 'server.js',
+    script: 'index.js',
     verbose: true,
     debug: true,
     ignore: ['logs/', '*.log', '.DS_Store'],
@@ -32,7 +32,7 @@ gulp.task('inspect', function () {
     vars: {}
   })
 
-  exec('./node_modules/.bin/nodemon --inspect-brk server.js', function (
+  exec('./node_modules/.bin/nodemon --inspect-brk index.js', function (
     err,
     stdout,
     stderr

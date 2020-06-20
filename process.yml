@@ -1,6 +1,6 @@
 apps:
-  - script: server.js
-    name: ciphoras
+  - script: index.js
+    name: spacedrops
     instances: 4
     exec_mode: cluster
     error_file: 'logs/app-out.log'
