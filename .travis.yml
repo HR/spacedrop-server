@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 12
+install: true
+script: skip
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: spacedrop-app
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
