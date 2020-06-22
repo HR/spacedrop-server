@@ -16,10 +16,10 @@ const ajv = new Ajv()
 const validateMessage = ajv.compile(messageSchema)
 
 class Server extends EventEmitter {
-  constructor (httpServer) {
+  constructor (httpServer, store) {
     super()
 
-    this._peers = {}
+    this._peers = store
     this._server = new WebSocketServer({
       clientTracking: false,
       noServer: true
@@ -121,7 +121,7 @@ class Server extends EventEmitter {
     }
 
     // Signal to receiving peer
-    this._peers[receiverId]._emit(type, msg)
+    this._peers.get(receiverId)._emit(type, msg)
     console.info(`Sent signal to peer ${receiverId} from ${senderId} (${type})`)
   }
 
@@ -129,7 +129,8 @@ class Server extends EventEmitter {
   _onPeerClose (peer, code, message) {
     if (!!peer.id && this._isConnected(peer.id)) {
       // Remove the peer from the local peers list
-      delete this._peers[peer.id]
+      this._peers.del(peer.id)
+      console.log(this._peers.keys())
       console.info(`Removed peer ${peer.id} ${code} ${message}`)
     }
   }
@@ -144,14 +145,14 @@ class Server extends EventEmitter {
       peer.send(JSON.stringify(response))
     }
 
-    this._peers[peerId] = peer
+    this._peers.set(peerId, peer)
     console.info(`Added peer connection ${peerId}`)
     return peer
   }
 
   // Checks if a peer is currently connected
   _isConnected (peerId) {
-    return !!this._peers[peerId]
+    return this._peers.has(peerId)
   }
 }
 
