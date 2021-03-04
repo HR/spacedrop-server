@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://spacedrop.app/schema/message.json",
+  "$id": "http://github.com/HR/spacedrop-server/schema/message.json",
   "title": "Message",
   "description": "Message sent from peer (relayed to another mostly)",
   "type": "object",

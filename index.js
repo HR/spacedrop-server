@@ -9,7 +9,7 @@ const http = require('http'),
     max: 500,
     maxAge: 1000 * 60 * 60,
     dispose: function (key, n) {
-      n.close(1, 'Session expired')
+      n.close(1000, 'Session expired')
     }
   },
   cache = new LRU(options),
